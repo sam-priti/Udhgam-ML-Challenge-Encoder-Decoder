@@ -9,14 +9,14 @@ This repository contains the source code for Team Encoder-Decoder's solution to 
 ## Solution Architecture
 Our approach uses a **CRNN-Attention Hybrid Model** trained from scratch.
 
-### Key Components:
+## Key Components:
 1.  **Learned Embeddings:** We train a fresh embedding layer (`dim=256`) to capture semantic relationships between obfuscated tokens.
 2.  **1D-CNN:** Extracts local texture and n-gram patterns (e.g., specific phrasing structures).
 3.  **Bi-GRU:** Captures long-range dependencies and sequence flow.
 4.  **Attention Mechanism:** Dynamically weights critical tokens, allowing the model to focus on constraints or keywords.
 5.  **Meta-Features:** We inject statistical features (Length, Unique Ratio, Std Dev) into the final dense layer to provide a global context.
 
-### Optimization Techniques:
+## Optimization Techniques:
 * **Pseudo-Labeling:** Leveraged high-confidence predictions from our best model to expand the training manifold.
 * **Test-Time Augmentation (TTA):** Implemented Monte Carlo Dropout (10 inference passes) to reduce variance and improve generalization.
 * **Huber Loss:** Used `SmoothL1Loss` for stable convergence near zero error.
